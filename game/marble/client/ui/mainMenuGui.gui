@@ -96,6 +96,8 @@ function mainMenuGui::onA(%this)
          }
       case 6: // exit game in demo
          %this.exitGame();
+      case 7: // exit game in demo
+         XBLiveShowAchievementsUINew();
    }
       
    return true;
@@ -156,6 +158,7 @@ function MainMenuGui::show(%this)
       MainMenu.addRow("Sports Highlights", "", 0, 6);
    else
       MainMenu.addRow($Text::Achievements, "", 0, 6);
+   
       
    if ($secretMode)
       MainMenu.addRow("Help & Op- HELP CLOWNS", "", 0, 8);
@@ -187,6 +190,8 @@ function MainMenuGui::show(%this)
    else
       MainMenu.addRow($Text::RTArcadeMenu, "", 0, 10);
    
+   MainMenu.addRow($Text::Achievements, "", 0, 8);
+
    // disable some stuff
    //MainMenu.setRowEnabled(4,false);
    

@@ -175,6 +175,7 @@ function initClient()
    
    exec("./ui/AchievementDlg.gui");
    exec("./ui/AchievementListGui.gui");
+   exec("./ui/AchievementsGui.gui");
    exec("./ui/JoinGameInviteDlg.gui");
 
    exec("./scripts/xbLive.cs");

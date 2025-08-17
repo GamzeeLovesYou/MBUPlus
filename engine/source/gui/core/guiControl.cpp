@@ -835,6 +835,16 @@ ConsoleMethod(GuiControl, isAwake, bool, 2, 2, "")
     return object->isAwake();
 }
 
+ConsoleMethod(GuiControl, setHeight, void, 3, 3, "int h")
+{
+    return object->setHeight(dAtoi(argv[2]));
+}
+
+ConsoleMethod(GuiControl, setTop, void, 3, 3, "int t")
+{
+    return object->setTop(dAtoi(argv[2]));
+}
+
 ConsoleMethod(GuiControl, setProfile, void, 3, 3, "(GuiControlProfile p)")
 {
     GuiControlProfile* profile;

@@ -1297,6 +1297,11 @@ function onXBLiveFriendChanged()
    }
 }
 
+function XBLiveShowAchievementsUINew() { 
+   %backgui = RootGui.contentGui;
+	RootGui.setContent(AchievementsGui, %backgui);
+}
+
 function XBLiveShowAchievementsUI() { 
    %backgui = RootGui.contentGui;
 	RootGui.setContent(AchievementListGui, %backgui);

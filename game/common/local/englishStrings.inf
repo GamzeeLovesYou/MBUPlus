@@ -200,6 +200,7 @@ $Text::MultiplayerMenu = "MULTIPLAYER GAME";
 $Text::OptimatchTitle = "CUSTOM GAME";
 $Text::AboutMenu = "ABOUT MARBLE BLAST";
 $Text::SelectLeaderboard = "SELECT LEADERBOARD";
+$Text::AchievementsScreen = "ACHIEVEMENTS";
 
 ;-------------------------------------------------------------------------------
 ; Menu Options
