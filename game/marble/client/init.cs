@@ -186,6 +186,16 @@ function initClient()
    exec("./scripts/default.bind.cs");
    exec("./scripts/xbControler.cs");
    
+   // Key Remapping GUI.
+   exec("./ui/RemapOptionsGui.gui");
+   exec("./ui/RemapInputGui.gui");
+
+   // File containing configs.
+   if (isFile("marble/client/config.cs"))
+   {
+      exec("marble/client/config.cs");
+   }
+
    exec("./scripts/interiorTest.cs");
 
    if (isPCBuild())
