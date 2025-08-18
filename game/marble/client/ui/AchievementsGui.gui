@@ -83,6 +83,11 @@ new GuiControl(AchievementsGui) {
 
 function AchievementsGui::show(%this, %backgui)
 {     
+   // Clear the Achivements list when loading in so no duplicates get added when
+   // reloading after loading the first time ~ Connie
+   AchievList.clear();
+   AchievList.extent = "685 0";
+
 	if (%backGui !$= "")
 	   %this.backGui = %backGui;
 	
