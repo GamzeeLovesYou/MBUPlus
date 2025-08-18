@@ -106,6 +106,8 @@ function AchievementsGui::show(%this, %backgui)
    
    //AchievementCountText.setText(%num @ "/14 Total Achievements Unlocked");
    
+   RootGui.setTitle($Text::AchievementsScreen);
+
    %achTitles[1] = $Text::AchievementName01;
    %achTitles[2] = $Text::AchievementName02;
    %achTitles[3] = $Text::AchievementName03;
