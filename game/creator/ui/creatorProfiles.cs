@@ -45,9 +45,6 @@ if(!isObject(GameScrollProfile)) new GuiControlProfile (GameScrollProfile)
 {
    opaque = true;
    fillColor = "0 0 0 0";
-   border = 3;
-   borderThickness = 2;
-   borderColor = "0 0 0";
    bitmap = "common/ui/darkScroll";
    hasBitmapArray = true;
 };

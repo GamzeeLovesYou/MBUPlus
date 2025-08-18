@@ -91,50 +91,72 @@ function AchievementsGui::show(%this, %backgui)
    
    %num = 0;
    
-   for (%i = 0; %i < $totalAchievements; %i++)
-   {
-		if ($UserAchievementsGot::achieved[%i] == 1)
-		{
-			%ach[%i] = %has;
-         echo("has ach");
-			%num++;
-		} else {
-			%ach[%i] = %noHas;
-         echo("no has ach");
-		}
-   }
+   //for (%i = 1; %i < $totalAchievements + 1; %i++)
+   //{
+	//	if ($UserAchievementsGot::achieved[%i] == 1)
+	//	{
+	//		%ach[%i] = %has;
+   //      echo("has ach");
+	//		%num++;
+	//	} else {
+	//		%ach[%i] = %noHas;
+   //      echo("no has ach");
+	//	}
+   //}
    
    //AchievementCountText.setText(%num @ "/14 Total Achievements Unlocked");
    
-   AchievementList.clear();
-   
-   AchievementList.addRow(0, %ach[1] TAB $Text::AchievementName01 TAB "5G");
-   AchievementList.addRow(1, %ach[2] TAB $Text::AchievementName02 TAB "10G");
-   AchievementList.addRow(2, %ach[3] TAB $Text::AchievementName03 TAB "15G");
-   AchievementList.addRow(3, %ach[4] TAB $Text::AchievementName04 TAB "25G");
-   AchievementList.addRow(4, %ach[5] TAB $Text::AchievementName05 TAB "15G");
-   AchievementList.addRow(5, %ach[6] TAB $Text::AchievementName06 TAB "25G");
-   AchievementList.addRow(6, %ach[7] TAB $Text::AchievementName07 TAB "35G");
-   AchievementList.addRow(7, %ach[8] TAB $Text::AchievementName08 TAB "5G");
-   AchievementList.addRow(8, %ach[9] TAB $Text::AchievementName09 TAB "25G");
-   AchievementList.addRow(9, %ach[10] TAB $Text::AchievementName10 TAB "10G");
-   AchievementList.addRow(10, %ach[11] TAB $Text::AchievementName11 TAB "10G");
-   AchievementList.addRow(11, %ach[12] TAB $Text::AchievementName12 TAB "20G");
-   AchievementList.addRow(12, %ach[13] TAB $Text::AchievementName13 TAB "10G");
-   AchievementList.addRow(13, %ach[14] TAB $Text::AchievementName14 TAB "20G");
-   AchievementList.addRow(14, %ach[15] TAB $Text::AchievementName15 TAB "20G");
-   //AchievementList.addRow(15, AchievementList.iconAchPath @ "1" TAB $Text::AchievementName15 TAB "20G");
-   
-   // creates an empty popup dialog?
-   RootGui.setA("Details");
-   RootGui.setB($Text::Back);
-   RootGui.setTitle($Text::AchievementsScreen);
-   
-   AchievementList.setSelectedById(0);
+   %achTitles[1] = $Text::AchievementName01;
+   %achTitles[2] = $Text::AchievementName02;
+   %achTitles[3] = $Text::AchievementName03;
+   %achTitles[4] = $Text::AchievementName04;
+   %achTitles[5] = $Text::AchievementName05;
+   %achTitles[6] = $Text::AchievementName06;
+   %achTitles[7] = $Text::AchievementName07;
+   %achTitles[8] = $Text::AchievementName08;
+   %achTitles[9] = $Text::AchievementName09;
+   %achTitles[10] = $Text::AchievementName10;
+   %achTitles[11] = $Text::AchievementName11;
+   %achTitles[12] = $Text::AchievementName12;
+   %achTitles[13] = $Text::AchievementName13;
+   %achTitles[14] = $Text::AchievementName14;
+   %achTitles[15] = $Text::AchievementName15;
+
+   %achDescs[1] = $Text::AchievementDescription01;
+   %achDescs[2] = $Text::AchievementDescription02;
+   %achDescs[3] = $Text::AchievementDescription03;
+   %achDescs[4] = $Text::AchievementDescription04;
+   %achDescs[5] = $Text::AchievementDescription05;
+   %achDescs[6] = $Text::AchievementDescription06;
+   %achDescs[7] = $Text::AchievementDescription07;
+   %achDescs[8] = $Text::AchievementDescription08;
+   %achDescs[9] = $Text::AchievementDescription09;
+   %achDescs[10] = $Text::AchievementDescription10;
+   %achDescs[11] = $Text::AchievementDescription11;
+   %achDescs[12] = $Text::AchievementDescription12;
+   %achDescs[13] = $Text::AchievementDescription13;
+   %achDescs[14] = $Text::AchievementDescription14;
+   %achDescs[15] = $Text::AchievementDescription15;
+
+   %achPoints[1] = "5";
+   %achPoints[2] = "10";
+   %achPoints[3] = "15";
+   %achPoints[4] = "25";
+   %achPoints[5] = "15";
+   %achPoints[6] = "25";
+   %achPoints[7] = "35";
+   %achPoints[8] = "5";
+   %achPoints[9] = "25";
+   %achPoints[10] = "10";
+   %achPoints[11] = "10";
+   %achPoints[12] = "20";
+   %achPoints[13] = "10";
+   %achPoints[14] = "20";
+   %achPoints[15] = "20";
 
    %numtwo = 0;
 
-   for (%i = 0; %i < $totalAchievements; %i++)
+   for (%i = 1; %i < $totalAchievements + 1; %i++)
    {
 		if ($UserAchievementsGot::achieved[%i] == 1)
 		{
@@ -145,10 +167,11 @@ function AchievementsGui::show(%this, %backgui)
 			%ach[%i] = %noHas;
          %isUnlocked = false;
 		}
-      %this.addAchievement(1, %i, %isUnlocked, "test", "test desc");
+      %this.addAchievement(1, %i, %isUnlocked, %achTitles[%i], %achDescs[%i], %achPoints[%i]);
    }
    AchievScroll.setProfile("GameScrollProfile");
    AchievScroll.setTop(14);
+   AchievScroll.setTop(15);
 
 }
 
@@ -157,7 +180,8 @@ function AchievementsGui::hide(%this)
    //endPreviewMission();
 }
 
-function AchievementsGui::addAchievement(%this, %catId, %id, %earned, %achName, %achDesc) {
+function AchievementsGui::addAchievement(%this, %catId, %id, %earned, %achName, %achDesc, %achPoint) {
+   //echo(%earned);
 	%w = getWord(AchievList.getExtent(), 0);
 	%h = 64;
 	%x = 0;
@@ -167,6 +191,7 @@ function AchievementsGui::addAchievement(%this, %catId, %id, %earned, %achName, 
 	%imgName = "AchievImg_" @ %catId @ "_" @ %id;
 	%textNameTitle = "AchievTextTitle_" @ %catId @ "_" @ %id;
    %textNameDesc = "AchievTextDesc_" @ %catId @ "_" @ %id;
+   %textPoints = "AchievPoints_" @ %catId @ "_" @ %id;
 
 	%box = new GuiControl(%boxName) {
 		profile = "GuiDefaultProfile";
@@ -210,24 +235,33 @@ function AchievementsGui::addAchievement(%this, %catId, %id, %earned, %achName, 
 			allowColorChars = "1";
 			maxChars = "-1";
 		};
+      //new GuiMLTextCtrl(%textPoints) {
+		//	profile = "BigInfoTextProfile";
+		//	horizSizing = "width";
+		//	vertSizing = "bottom";
+		//	position = "72 42";
+		//	extent = (%w - 8) SPC(%h - 4);
+		//	minExtent = "8 8";
+		//	visible = "1";
+		//	lineSpacing = "2";
+		//	allowColorChars = "1";
+		//	maxChars = "-1";
+		//};
 	};
 
 	%text = %achName;
    %desc = %achDesc;
-	//if (%achLevel !$= "")
-	//	%text = %text @ "<just:right><font:19>(" @ %achLevel @ ")";
-	//%text = %text NL "<font:19><just:left>" @ %achDesc;
+   %points = %achPoint;
 	%textNameTitle.setText(%text);
-   %textNameDesc.setText(%desc);
+   %textNameDesc.setText(%desc @ " • " @ %points @ "G");
+   //%textPoints.setText(%points @ "G");
 
-   %iconId = %id + 1;
-   //echo(%ach[%id]);
-   if($UserAchievementsGot::achieved[%i] == 1){
+   %iconId = %id;
+   if(%earned){
       %imgName.setBitmap("marble/client/ui/achievement/" @ %iconId @ ".png");
    } else {
       %imgName.setBitmap("marble/client/ui/achievement/" @ %iconId @ "_l.png");
    }
-	//%imgName.setBitmap(%ach[%id] ? "marble/client/ui/achievement/" @ %iconId @ ".png" : "marble/client/ui/achievement/" @ %iconId @ "_l.png");
 
 	AchievList.add(%box);
 	AchievList.setHeight(%y + %h);
