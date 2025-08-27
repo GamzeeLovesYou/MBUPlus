@@ -11,6 +11,7 @@
 #include "gui/core/guiTSControl.h"
 
 #include "gui/game/guiScoreCountHud.h"
+#include "game/marble/marble.h";
 
 //--------------------------------------------------------
 IMPLEMENT_CONOBJECT(GuiScoreCountHud);
@@ -55,13 +56,24 @@ void GuiScoreCountHud::onRender(Point2I offset, const RectI& updateRect)
     if (!con)
         return;
 
-    ShapeBase* obj = dynamic_cast<ShapeBase*>(con->getControlObject());
+    Marble* obj = dynamic_cast<Marble*>(con->getControlObject());
     if (!obj)
         return;
 
     MatrixF srtMat = obj->getRenderTransform();
     Point3F shapePos = srtMat.getPosition();
-    shapePos.z += mVerticalOffset;
+
+    // New way of getting the position of where that gem thing should be,
+    // taking into account gravity direction. ~ Connie
+    Point3F result;
+    Point3F gravityDir = obj->getGravityDir(&result);
+    Point3F up = -gravityDir;
+
+    Point3F realoffset = up * mVerticalOffset;
+    shapePos += realoffset;
+
+    // Former way to get the position of where that gem thing should be ~ Connie
+    //shapePos.z += mVerticalOffset;
 
     Point3F projPnt;
     if (parent->project(shapePos, &projPnt))
